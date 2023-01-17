@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{:: main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+  <main role="main">
+    <div class="container mt-5 p-5 bg-light">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h3>Customer Form</h3>
+            </div>
+            <div class="card-body">
+              <form th:action="@{/customers/customer-form}" th:object="${customer}" method="post">
+
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" th:field="*{firstName}" name="firstName" id="firstName"
+                         th:classappend="${#fields.hasErrors('firstName')} ? 'is-invalid'" class="form-control">
+                  <small th:if="${#fields.hasErrors('firstName')}" class="invalid-feedback" th:errors="*{firstName}"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" th:field="*{lastName}" name="lastName" id="lastName"
+                         th:classappend="${#fields.hasErrors('firstName')} ? 'is-invalid'" class="form-control">
+                  <small th:if="${#fields.hasErrors('lastName')}" class="invalid-feedback" th:errors="*{lastName}"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="code">Code</label>
+                  <input type="text" th:field="*{code}" name="code" id="code"
+                         th:classappend="${#fields.hasErrors('code')} ? 'is-invalid'" class="form-control">
+                  <small th:if="${#fields.hasErrors('code')}" class="invalid-feedback" th:errors="*{code}"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input type="text" th:field="*{address}" name="address" id="address"
+                         th:classappend="${#fields.hasErrors('address')} ? 'is-invalid'" class="form-control">
+                  <small th:if="${#fields.hasErrors('address')}" class="invalid-feedback" th:errors="*{address}"></small>
+                </div>
+
+                <input type="submit" value="Save" class="btn btn-primary btn-block btn-lg">
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

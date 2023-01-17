@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<table th:fragment="customerTable" class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Code</th>
+        <th>Address</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="cus : ${customers}">
+            <td th:text="${cus.id}"></td>
+            <td th:text="${cus.firstName}"></td>
+            <td th:text="${cus.lastName}"></td>
+            <td th:text="${cus.code}"></td>
+            <td th:text="${cus.address}"></td>
+            <td><a th:href="@{'/customers/customers/delete?id=' + ${cus.id}}" class="btn btn-outline-danger">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

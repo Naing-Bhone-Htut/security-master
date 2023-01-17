@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <main role="main">
+        <div id="notfound">
+            <div class="notfound">
+                <div class="notfound-404">
+                    <h1>4<span>0</span>4</h1>
+                </div>
+                <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
+                <a th:href="@{/home}">Home page</a>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col py-5" >
+
+                    <div class="alert alert-danger" role="alert">
+                       <!-- <h3 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|"></h3>-->
+                        <h3 th:text="${errorMessage}"></h3>
+
+                        <a th:href="@{/home}" class="btn btn-primary btn-lg">Go Home</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

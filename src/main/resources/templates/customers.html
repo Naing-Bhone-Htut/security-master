@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{:: main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+</head>
+<body>
+<main role="main">
+    <div class="container mt-5 p-5">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="h3">Customer Table</div>
+                    </div>
+                    <div class="card-body">
+                        <div th:replace="fragments/customers-table.html :: customerTable"></div>
+                    </div>
+                </div>
+                <a th:href="@{/customers/customer-form}" class="btn btn-primary my-4"> Create Customer</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

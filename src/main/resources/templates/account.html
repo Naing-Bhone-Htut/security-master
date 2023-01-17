@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main role="main">
+    <div class="container mt-5 p-5">
+        <div class="row text-center">
+            <div class="col">
+                <h4>Account Info</h4>
+                <h3>LoggedInUser - [ <span sec:authentication="name"></span> ]</h3>
+                <div>
+                    <h2>Roles</h2>
+                    <ul class="list-group" th:each="role: ${#authentication.getAuthorities()}">
+                        <li class="list-group-item" th:text="${role}"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="max-height: 400px"></div>
+    </div>
+</main>
+</body>
+</html>
